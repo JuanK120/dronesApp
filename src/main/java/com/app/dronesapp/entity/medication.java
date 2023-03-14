@@ -8,6 +8,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name="medication")
 public class medication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,15 +20,52 @@ public class medication {
     private String name;
 
     @Nonnull
-    @Min(0)
-    @Max(100)
-    private int battery_capacity;
+    private int weight;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "state")
-    private drone_state state;
+    @Pattern(regexp = "^[A-Z0-9_]*$")
+    private String code;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "model")
-    private model model;
+    @Lob
+    @Column(name = "image", length = 1000)
+    private byte[] image;
+
+    public int getMedication_id() {
+        return medication_id;
+    }
+
+    public void setMedication_id(int medication_id) {
+        this.medication_id = medication_id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 }

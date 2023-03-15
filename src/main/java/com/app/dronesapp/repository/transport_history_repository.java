@@ -14,13 +14,11 @@ public interface transport_history_repository extends JpaRepository<transport_hi
     @Query("select sum(m.weight) from transport_history h join " +
             "                           medication m on h.medication.medication_id = m.medication_id" +
             "                      where h.drone.drone_id=?1 and h.delivered=false")
-    int getDroneWeigth(int drone_id);
+    Integer getDroneWeigth(int drone_id);
 
 
-    @Query("from medication m where m in (" +
-                "select h.medication from transport_history h " +
+    @Query("from transport_history h " +
                     "where h.drone.drone_id = ?1 " +
-            "          and h.delivered=false" +
-            ")")
-    List<medication> getDronePayload(int drone_id);
+            "          and h.delivered=false")
+    List<transport_history> getDronePayload(int drone_id);
 }

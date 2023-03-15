@@ -26,7 +26,7 @@ public class transport_history_controller {
 
 
     @GetMapping("/getPayload/{id}")
-    public ResponseEntity<List<medication>> getDronePayload(@PathVariable("id") int id){
+    public ResponseEntity<List<transport_history>> getDronePayload(@PathVariable("id") int id){
         return drone_service.getDroneById(id).map(
                 drone -> new ResponseEntity<>(
                         transport_history_service.checkDronePayload(id), HttpStatus.OK
@@ -45,7 +45,7 @@ public class transport_history_controller {
                     HttpStatus.BAD_REQUEST
             );
         } else if (transport_history_service.checkDroneWeigth(drone.getDrone_id())
-                +medication.getWeight() >= drone.getModel().getWeigth_limit()){
+                +medication.getWeight() > drone.getModel().getWeight_limit()){
             return new ResponseEntity<>(
                     HttpStatus.BAD_REQUEST
             );

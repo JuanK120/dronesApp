@@ -20,7 +20,7 @@ public class model {
     @Nonnull
     @Min(0)
     @Max(500)
-    private int weigth_limit;
+    private int weight_limit;
 
     public int getModel_id() {
         return model_id;
@@ -38,11 +38,11 @@ public class model {
         this.model_name = model_name;
     }
 
-    public int getWeigth_limit() {
-        return weigth_limit;
+    public int getWeight_limit() {
+        return weight_limit;
     }
 
-    public void setWeigth_limit(int weigth_limit) {
-        this.weigth_limit = weigth_limit;
+    public void setWeight_limit(int weigth_limit) {
+        this.weight_limit = weigth_limit;
     }
 }

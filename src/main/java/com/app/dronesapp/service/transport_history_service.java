@@ -11,5 +11,5 @@ public interface transport_history_service {
     public Optional<transport_history> getTransportHistory(int id);
     public transport_history deliverMedication(transport_history transport_history);
     public int checkDroneWeigth(int droneId);
-    public List<medication> checkDronePayload(int droneId);
+    public List<transport_history> checkDronePayload(int droneId);
 }

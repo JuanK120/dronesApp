@@ -65,11 +65,11 @@ public class drone {
         this.state = state;
     }
 
-    public com.app.dronesapp.entity.model getModel() {
+    public model getModel() {
         return model;
     }
 
-    public void setModel(com.app.dronesapp.entity.model model) {
+    public void setModel(model model) {
         this.model = model;
     }
 }

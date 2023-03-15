@@ -23,4 +23,9 @@ public class drone_state_service_implementation implements drone_state_service{
         return drone_state_repository.findById(id);
     }
 
+    @Override
+    public Optional<drone_state> getDroneStateByName(String name) {
+        return drone_state_repository.findDroneStateByName(name);
+    }
+
 }

@@ -6,6 +6,7 @@ import com.app.dronesapp.repository.transport_history_repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.Null;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -37,11 +38,18 @@ public class transport_history_service_implementation implements  transport_hist
 
     @Override
     public int checkDroneWeigth(int droneId) {
-        return transport_history_repository.getDroneWeigth(droneId);
+
+        if (transport_history_repository.getDroneWeigth(droneId)==null){
+            System.out.println(transport_history_repository.getDroneWeigth(droneId));
+            return 0;
+        }else {
+            System.out.println(transport_history_repository.getDroneWeigth(droneId).intValue());
+            return transport_history_repository.getDroneWeigth(droneId).intValue();
+        }
     }
 
     @Override
-    public List<medication> checkDronePayload(int droneId) {
+    public List<transport_history> checkDronePayload(int droneId) {
         return transport_history_repository.getDronePayload(droneId);
     }
 

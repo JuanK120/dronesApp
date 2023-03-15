@@ -7,7 +7,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 class DronesAppApplicationTests {
 
     @Test
-    void contextLoads() {
+    void droneTests() {
+
     }
+
+    @Test
+    void transportTests() {
+
+    }
+
+
 
 }
